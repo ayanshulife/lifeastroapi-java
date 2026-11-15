@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.lifeastroapi</groupId>
+    <artifactId>lifeastroapi-parent</artifactId>
+    <version>0.1.0</version>
+  </parent>
+
+  <artifactId>lifeastroapi-java</artifactId>
+  <packaging>jar</packaging>
+
+  <name>LifeAstroAPI Java SDK</name>
+  <description>Official Java SDK for LifeAstroAPI: all 321 endpoints of the Vedic astrology and Hindu calendar
+    API (panchang, festivals, kundli, dasha, kundli matching, muhurat, transits, horoscopes, numerology, Lal Kitab,
+    remedies, narrative readings, JSON reports, Western astrology, tarot) in 10 languages. Java 17+, JDK HttpClient
+    and Jackson; no other dependencies.</description>
+  <url>https://lifeastroapi.com</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Automatic-Module-Name>com.lifeastroapi</Automatic-Module-Name>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

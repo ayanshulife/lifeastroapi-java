@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+lifeastroapi:
+  api-key: ${LIFEASTRO_API_KEY}                              # from the environment, never committed
+  base-url: ${LIFEASTRO_API_URL:https://api.lifeastroapi.com}  # a local server: LIFEASTRO_API_URL=http://localhost:8080
+  timeout: 30s
+  max-retries: 2
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:astro
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
