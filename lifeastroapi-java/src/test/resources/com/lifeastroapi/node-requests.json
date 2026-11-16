@@ -1,5 +1,5 @@
 {
- "node_sdk_version": "0.10.0",
+ "node_sdk_version": "0.13.0",
  "methods": {
   "ashtakavarga.bhinna": {
    "url": "/v1/ashtakavarga/bhinna/Jupiter?birth.date=1990-01-15&birth.lat=19.076&birth.lon=72.8777&birth.time=10%3A30&birth.tz=Asia%2FKolkata",
@@ -95,12 +95,12 @@
    "lang_url": "/v1/chart/houses?date=1990-01-15&lang=bn&lat=19.076&locale=bn&lon=72.8777&time=10%3A30&tz=Asia%2FKolkata"
   },
   "chart.kpHouseSignificator": {
-   "url": "/v1/chart/kp-house-significator?cusp=7&date=1990-01-15&lat=19.076&lon=72.8777&time=10%3A30&tz=Asia%2FKolkata",
-   "lang_url": "/v1/chart/kp-house-significator?cusp=7&date=1990-01-15&lang=bn&lat=19.076&locale=bn&lon=72.8777&time=10%3A30&tz=Asia%2FKolkata"
+   "url": "/v1/chart/kp-house-significator?date=1990-01-15&lat=19.076&lon=72.8777&time=10%3A30&tz=Asia%2FKolkata",
+   "lang_url": "/v1/chart/kp-house-significator?date=1990-01-15&lang=bn&lat=19.076&locale=bn&lon=72.8777&time=10%3A30&tz=Asia%2FKolkata"
   },
   "chart.kpSublord": {
-   "url": "/v1/chart/kp-sublord?date=1990-01-15&lat=19.076&lon=72.8777&planet=Jupiter&time=10%3A30&tz=Asia%2FKolkata",
-   "lang_url": "/v1/chart/kp-sublord?date=1990-01-15&lang=bn&lat=19.076&locale=bn&lon=72.8777&planet=Jupiter&time=10%3A30&tz=Asia%2FKolkata"
+   "url": "/v1/chart/kp-sublord?date=1990-01-15&lat=19.076&lon=72.8777&time=10%3A30&tz=Asia%2FKolkata",
+   "lang_url": "/v1/chart/kp-sublord?date=1990-01-15&lang=bn&lat=19.076&locale=bn&lon=72.8777&time=10%3A30&tz=Asia%2FKolkata"
   },
   "chart.kundliFacts": {
    "url": "/v1/chart/kundli-facts?date=1990-01-15&lat=19.076&lon=72.8777&time=10%3A30&tz=Asia%2FKolkata",
@@ -703,6 +703,10 @@
   "prashna.chart": {
    "url": "/v1/prashna/chart?date=2026-11-20&lat=19.076&lon=72.8777&time=12%3A00&tz=Asia%2FKolkata",
    "lang_url": "/v1/prashna/chart?date=2026-11-20&lang=bn&lat=19.076&locale=bn&lon=72.8777&time=12%3A00&tz=Asia%2FKolkata"
+  },
+  "prashna.kpHorary": {
+   "url": "/v1/prashna/kp-horary?date=2026-11-20&lat=19.076&lon=72.8777&number=23&time=12%3A00&tz=Asia%2FKolkata",
+   "lang_url": "/v1/prashna/kp-horary?date=2026-11-20&lang=bn&lat=19.076&locale=bn&lon=72.8777&number=23&time=12%3A00&tz=Asia%2FKolkata"
   },
   "prashna.lagnaLord": {
    "url": "/v1/prashna/lagna-lord?date=2026-11-20&lat=19.076&lon=72.8777&time=12%3A00&tz=Asia%2FKolkata",

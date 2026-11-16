@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.2.0 (2026-11-15)
+
+- New `prashna().kpHorary(PrashnaKpHoraryParams.builder().number(23).lat(...).lon(...).tz(...).date(...).time(...).build())`
+  (and on the async client): the KP horary chart for a number from 1 to 249, cast for the moment
+  and place of judgement. Returns the horary ascendant (the first degree of that number's part),
+  the 12 Placidus cusps with star, sub and sub-sub lords and significators, the planets with KP
+  lords and houses, planet significators, the KP 4-step chain and the ruling planets. Uses the
+  Krishnamurti ayanamsa unless `ayanamsa` is set. 30 credits. Same method as the Node.js SDK 0.13.0.
+- `chart().kpSublord(...)` now also returns the KP ruling planets (`ruling_planets`), and
+  `chart().kpHouseSignificator(...)` returns each cusp's significator planets, the houses every
+  planet signifies and the 4-step chain (new fields from the API; nothing removed).
+- `ChartKpSublordParams.planet` and `ChartKpHouseSignificatorParams.cusp` are no longer required
+  by `build()`. The API never read them: it always returns every planet and all 12 cusps. Code
+  that sets them keeps working.
+- Parameter docs refreshed from the API reference (for example `month` on the monthly horoscope is
+  `YYYY-MM`).
+- 323 methods (322 endpoints).
+
 ## 0.1.0 (2026-11-15)
 
 First release of the official Java SDK.

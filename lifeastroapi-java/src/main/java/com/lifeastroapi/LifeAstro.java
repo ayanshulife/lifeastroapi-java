@@ -43,7 +43,7 @@ import java.util.function.Function;
 public final class LifeAstro extends LifeAstroResources implements AutoCloseable {
 
     /** SDK version, sent in the {@code User-Agent} header. */
-    public static final String VERSION = "0.1.0";
+    public static final String VERSION = "0.2.0";
 
     /** The production API. */
     public static final String DEFAULT_BASE_URL = "https://api.lifeastroapi.com";

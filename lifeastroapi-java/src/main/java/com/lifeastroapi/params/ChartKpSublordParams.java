@@ -20,20 +20,21 @@ import java.util.TreeMap;
  * Parameters of <code>GET /v1/chart/kp-sublord</code>, for {@link
  * com.lifeastroapi.resources.Chart#kpSublord(ChartKpSublordParams) client.chart().kpSublord()}.
  *
- * <p>Get the KP sublord of a planet — the sub-lord of the nakshatra sub-division the planet occupies (KP star
- * lord → sub lord → sub-sub lord chain).
+ * <p>KP star, sub and sub-sub lords of every planet (10 credits), and the KP ruling planets for the moment and
+ * place (day lord, and the star, sign and sub lords of the ascendant and the Moon); send the moment of
+ * judgement for horary or timing. Pass ayanamsa krishnamurti for KP work. <code>planet</code> is accepted for
+ * compatibility and ignored: all planets are returned.
  *
  * <pre>{@code
  * ChartKpSublordParams params = ChartKpSublordParams.builder()
  *     .birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777))
- *     .planet("Jupiter")
  *     .build();
  * JsonNode result = client.chart().kpSublord(params);
  * }</pre>
  *
- * <p>Required: <code>lat</code>, <code>lon</code>, <code>date</code>, <code>time</code>, <code>tz</code>,
- * <code>planet</code>; {@link Builder#build()} throws {@link IllegalStateException} when one is missing.
- * Immutable, with value equality, so it can be a cache key.
+ * <p>Required: <code>lat</code>, <code>lon</code>, <code>date</code>, <code>time</code>, <code>tz</code>; {@link
+ * Builder#build()} throws {@link IllegalStateException} when one is missing. Immutable, with value equality,
+ * so it can be a cache key.
  */
 public final class ChartKpSublordParams {
     private final Double lat;
@@ -41,9 +42,9 @@ public final class ChartKpSublordParams {
     private final String date;
     private final String time;
     private final String tz;
-    private final String planet;
     private final String ayanamsa;
     private final String houseSystem;
+    private final String planet;
     private final String lang;
 
     private ChartKpSublordParams(Builder b) {
@@ -52,9 +53,9 @@ public final class ChartKpSublordParams {
         this.date = b.date;
         this.time = b.time;
         this.tz = b.tz;
-        this.planet = b.planet;
         this.ayanamsa = b.ayanamsa;
         this.houseSystem = b.houseSystem;
+        this.planet = b.planet;
         this.lang = b.lang;
     }
 
@@ -113,15 +114,6 @@ public final class ChartKpSublordParams {
     }
 
     /**
-     * The <code>planet</code> value.
-     *
-     * @return the value, or null when not set
-     */
-    public String planet() {
-        return planet;
-    }
-
-    /**
      * Ayanamsa (sidereal offset) to use. Defaults to lahiri.
      *
      * @return the wire value, or null when not set
@@ -137,6 +129,15 @@ public final class ChartKpSublordParams {
      */
     public String houseSystem() {
         return houseSystem;
+    }
+
+    /**
+     * The <code>planet</code> value.
+     *
+     * @return the value, or null when not set
+     */
+    public String planet() {
+        return planet;
     }
 
     /**
@@ -190,15 +191,15 @@ public final class ChartKpSublordParams {
                 && Objects.equals(date, other.date)
                 && Objects.equals(time, other.time)
                 && Objects.equals(tz, other.tz)
-                && Objects.equals(planet, other.planet)
                 && Objects.equals(ayanamsa, other.ayanamsa)
                 && Objects.equals(houseSystem, other.houseSystem)
+                && Objects.equals(planet, other.planet)
                 && Objects.equals(lang, other.lang);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lat, lon, date, time, tz, planet, ayanamsa, houseSystem, lang);
+        return Objects.hash(lat, lon, date, time, tz, ayanamsa, houseSystem, planet, lang);
     }
 
     @Override
@@ -225,16 +226,16 @@ public final class ChartKpSublordParams {
             s.append(sep).append("tz=").append(tz);
             sep = ", ";
         }
-        if (planet != null) {
-            s.append(sep).append("planet=").append(planet);
-            sep = ", ";
-        }
         if (ayanamsa != null) {
             s.append(sep).append("ayanamsa=").append(ayanamsa);
             sep = ", ";
         }
         if (houseSystem != null) {
             s.append(sep).append("houseSystem=").append(houseSystem);
+            sep = ", ";
+        }
+        if (planet != null) {
+            s.append(sep).append("planet=").append(planet);
             sep = ", ";
         }
         if (lang != null) {
@@ -253,9 +254,9 @@ public final class ChartKpSublordParams {
         private String date;
         private String time;
         private String tz;
-        private String planet;
         private String ayanamsa;
         private String houseSystem;
+        private String planet;
         private String lang;
 
         private Builder() {
@@ -367,17 +368,6 @@ public final class ChartKpSublordParams {
         }
 
         /**
-         * Sets <code>planet</code>.
-         *
-         * @param planet the value, required
-         * @return this builder
-         */
-        public Builder planet(String planet) {
-            this.planet = planet;
-            return this;
-        }
-
-        /**
          * Ayanamsa (sidereal offset) to use. Defaults to lahiri.
          *
          * @param ayanamsa the value, or null to leave it out
@@ -422,6 +412,17 @@ public final class ChartKpSublordParams {
         }
 
         /**
+         * Sets <code>planet</code>.
+         *
+         * @param planet the value, or null to leave it out
+         * @return this builder
+         */
+        public Builder planet(String planet) {
+            this.planet = planet;
+            return this;
+        }
+
+        /**
          * Response language. Sent as <code>lang</code> and <code>locale</code>.
          *
          * @param lang the language, or null to leave it out
@@ -456,7 +457,6 @@ public final class ChartKpSublordParams {
             Wire.require(missing, "date", date);
             Wire.require(missing, "time", time);
             Wire.require(missing, "tz", tz);
-            Wire.require(missing, "planet", planet);
             if (!missing.isEmpty()) {
                 throw Wire.missing("ChartKpSublordParams", missing);
             }

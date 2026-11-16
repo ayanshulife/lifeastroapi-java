@@ -21,20 +21,21 @@ import java.util.TreeMap;
  * com.lifeastroapi.resources.Chart#kpHouseSignificator(ChartKpHouseSignificatorParams)
  * client.chart().kpHouseSignificator()}.
  *
- * <p>Get KP (Krishnamurti Paddhati) house significators for a given cusp — lists planets that significate the
- * house through occupancy, lordship, and sub-lord chain.
+ * <p>KP house significators for all 12 Placidus cusps (20 credits): each cusp's star, sub and sub-sub lords and
+ * its significator planets (four KP levels), the houses every planet signifies, and the KP 4-step chain. Pass
+ * ayanamsa krishnamurti for KP work. <code>cusp</code> is accepted for compatibility and ignored: all 12
+ * cusps are returned.
  *
  * <pre>{@code
  * ChartKpHouseSignificatorParams params = ChartKpHouseSignificatorParams.builder()
  *     .birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777))
- *     .cusp(7)
  *     .build();
  * JsonNode result = client.chart().kpHouseSignificator(params);
  * }</pre>
  *
- * <p>Required: <code>lat</code>, <code>lon</code>, <code>date</code>, <code>time</code>, <code>tz</code>,
- * <code>cusp</code>; {@link Builder#build()} throws {@link IllegalStateException} when one is missing.
- * Immutable, with value equality, so it can be a cache key.
+ * <p>Required: <code>lat</code>, <code>lon</code>, <code>date</code>, <code>time</code>, <code>tz</code>; {@link
+ * Builder#build()} throws {@link IllegalStateException} when one is missing. Immutable, with value equality,
+ * so it can be a cache key.
  */
 public final class ChartKpHouseSignificatorParams {
     private final Double lat;
@@ -42,9 +43,9 @@ public final class ChartKpHouseSignificatorParams {
     private final String date;
     private final String time;
     private final String tz;
-    private final Integer cusp;
     private final String ayanamsa;
     private final String houseSystem;
+    private final Integer cusp;
     private final String lang;
 
     private ChartKpHouseSignificatorParams(Builder b) {
@@ -53,9 +54,9 @@ public final class ChartKpHouseSignificatorParams {
         this.date = b.date;
         this.time = b.time;
         this.tz = b.tz;
-        this.cusp = b.cusp;
         this.ayanamsa = b.ayanamsa;
         this.houseSystem = b.houseSystem;
+        this.cusp = b.cusp;
         this.lang = b.lang;
     }
 
@@ -114,15 +115,6 @@ public final class ChartKpHouseSignificatorParams {
     }
 
     /**
-     * The <code>cusp</code> value.
-     *
-     * @return the value, or null when not set
-     */
-    public Integer cusp() {
-        return cusp;
-    }
-
-    /**
      * Sidereal ayanamsa; the API uses Lahiri when left out.
      *
      * @return the wire value, or null when not set
@@ -138,6 +130,15 @@ public final class ChartKpHouseSignificatorParams {
      */
     public String houseSystem() {
         return houseSystem;
+    }
+
+    /**
+     * The <code>cusp</code> value.
+     *
+     * @return the value, or null when not set
+     */
+    public Integer cusp() {
+        return cusp;
     }
 
     /**
@@ -191,15 +192,15 @@ public final class ChartKpHouseSignificatorParams {
                 && Objects.equals(date, other.date)
                 && Objects.equals(time, other.time)
                 && Objects.equals(tz, other.tz)
-                && Objects.equals(cusp, other.cusp)
                 && Objects.equals(ayanamsa, other.ayanamsa)
                 && Objects.equals(houseSystem, other.houseSystem)
+                && Objects.equals(cusp, other.cusp)
                 && Objects.equals(lang, other.lang);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lat, lon, date, time, tz, cusp, ayanamsa, houseSystem, lang);
+        return Objects.hash(lat, lon, date, time, tz, ayanamsa, houseSystem, cusp, lang);
     }
 
     @Override
@@ -226,16 +227,16 @@ public final class ChartKpHouseSignificatorParams {
             s.append(sep).append("tz=").append(tz);
             sep = ", ";
         }
-        if (cusp != null) {
-            s.append(sep).append("cusp=").append(cusp);
-            sep = ", ";
-        }
         if (ayanamsa != null) {
             s.append(sep).append("ayanamsa=").append(ayanamsa);
             sep = ", ";
         }
         if (houseSystem != null) {
             s.append(sep).append("houseSystem=").append(houseSystem);
+            sep = ", ";
+        }
+        if (cusp != null) {
+            s.append(sep).append("cusp=").append(cusp);
             sep = ", ";
         }
         if (lang != null) {
@@ -254,9 +255,9 @@ public final class ChartKpHouseSignificatorParams {
         private String date;
         private String time;
         private String tz;
-        private Integer cusp;
         private String ayanamsa;
         private String houseSystem;
+        private Integer cusp;
         private String lang;
 
         private Builder() {
@@ -368,17 +369,6 @@ public final class ChartKpHouseSignificatorParams {
         }
 
         /**
-         * Sets <code>cusp</code>.
-         *
-         * @param cusp the value
-         * @return this builder
-         */
-        public Builder cusp(int cusp) {
-            this.cusp = cusp;
-            return this;
-        }
-
-        /**
          * Sidereal ayanamsa; the API uses Lahiri when left out.
          *
          * @param ayanamsa the value, or null to leave it out
@@ -423,6 +413,17 @@ public final class ChartKpHouseSignificatorParams {
         }
 
         /**
+         * Sets <code>cusp</code>.
+         *
+         * @param cusp the value
+         * @return this builder
+         */
+        public Builder cusp(int cusp) {
+            this.cusp = cusp;
+            return this;
+        }
+
+        /**
          * Response language. Sent as <code>lang</code> and <code>locale</code>.
          *
          * @param lang the language, or null to leave it out
@@ -457,7 +458,6 @@ public final class ChartKpHouseSignificatorParams {
             Wire.require(missing, "date", date);
             Wire.require(missing, "time", time);
             Wire.require(missing, "tz", tz);
-            Wire.require(missing, "cusp", cusp);
             if (!missing.isEmpty()) {
                 throw Wire.missing("ChartKpHouseSignificatorParams", missing);
             }

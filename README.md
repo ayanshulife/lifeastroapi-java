@@ -7,7 +7,7 @@ Lal Kitab, remedies, readings, JSON reports, plus Western astrology and tarot. L
 in 10 languages, pay per call. Free tier: 1,500 credits a month, no card,
 [get a key](https://lifeastroapi.com/signup/).
 
-- **All 321 endpoints** as 322 typed methods in 23 resource groups (`chart().navamsa()` is a
+- **All 322 endpoints** as 323 typed methods in 23 resource groups (`chart().navamsa()` is a
   shortcut for the D9 chart).
 - **Java 17+, works in Spring Boot 3.** HTTP through the JDK's `java.net.http.HttpClient`, JSON
   through Jackson (`jackson-databind`, which Spring Boot already ships). No other dependencies.
@@ -30,14 +30,14 @@ Maven:
 <dependency>
   <groupId>com.lifeastroapi</groupId>
   <artifactId>lifeastroapi-java</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 
 Gradle:
 
 ```kotlin
-implementation("com.lifeastroapi:lifeastroapi-java:0.1.0")
+implementation("com.lifeastroapi:lifeastroapi-java:0.2.0")
 ```
 
 In a Spring Boot application, use the starter instead (it brings the SDK with it), see
@@ -47,12 +47,12 @@ In a Spring Boot application, use the starter instead (it brings the SDK with it
 <dependency>
   <groupId>com.lifeastroapi</groupId>
   <artifactId>lifeastroapi-spring-boot-starter</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 
 ```kotlin
-implementation("com.lifeastroapi:lifeastroapi-spring-boot-starter:0.1.0")
+implementation("com.lifeastroapi:lifeastroapi-spring-boot-starter:0.2.0")
 ```
 
 ## Quick start
@@ -224,7 +224,7 @@ JsonNode day = client.panchang().basic(PanchangBasicParams.builder()
 | Group | What it covers |
 |-------|----------------|
 | `panchang()` | tithi, nakshatra, yoga, karana, vara, sunrise/sunset, rahu kaal, choghadiya, hora, muhurtas, monthly calendar, `basic` / `advanced` |
-| `chart()` | planets, ascendant, houses, divisional (D1–D60), dignity, aspects, shadbala, ashtakvarga, avakhada, KP, astro details; data bundles `kundliFacts`, `yogas`, `doshas`, `sensitivity` |
+| `chart()` | planets, ascendant, houses, divisional (D1–D60), dignity, aspects, shadbala, ashtakvarga, avakhada, KP (sub lords, ruling planets, significators, 4-step chain), astro details; data bundles `kundliFacts`, `yogas`, `doshas`, `sensitivity` |
 | `dasha()` | Vimshottari (5 levels), Yogini and Chara (`chara`) |
 | `milan()` | Ashtakoota (total, full, per koota), mangal / nadi / shani dosha, navamsa and dasha compatibility, `overlay`, `summary` |
 | `transit()` | positions, sade sati, ashtakavarga, tarabala, vedha, double transit, small panoti, dated `sadeSatiWindows` and `windows` |
@@ -232,7 +232,7 @@ JsonNode day = client.panchang().basic(PanchangBasicParams.builder()
 | `numerology()` | driver, conductor, soul, personality, destiny, full, advanced, challenges, personal periods |
 | `muhurta()` | vivah, naamkaran, griha pravesh, vyapar, yatra, best time, chandra / tara bala |
 | `varshaphal()` | annual chart, lord, muntha, mudda dasha, harsha bala, tajika yogas |
-| `prashna()` | horary answer, chart, arudha, significators |
+| `prashna()` | horary answer, chart, arudha, significators, KP horary (1–249) |
 | `eclipses()` | solar, lunar, all (date range) |
 | `calendar()` | Hindu month, ritu, samvatsara, adhik maas, solstices |
 | `festivals()` | festivals and vrats by month, on a date, by vrat family |

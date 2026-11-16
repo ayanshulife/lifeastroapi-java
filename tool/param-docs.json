@@ -472,16 +472,16 @@
  },
  "/v1/horoscope/daily": {
   "date": "Date (YYYY-MM-DD).",
-  "rashi": "Moon sign (rashi) name, e.g. Mesha."
+  "rashi": "Moon sign (rashi): English or Hindi name in any case, e.g. Mesha, Mesh or aries."
  },
  "/v1/horoscope/monthly": {
   "date": "Date (YYYY-MM-DD).",
-  "rashi": "Moon sign (rashi) name, e.g. Mesha.",
-  "month": "Month number (1–12)."
+  "rashi": "Moon sign (rashi): English or Hindi name in any case, e.g. Mesha, Mesh or aries.",
+  "month": "Month (YYYY-MM), e.g. 2027-01."
  },
  "/v1/horoscope/weekly": {
   "date": "Date (YYYY-MM-DD).",
-  "rashi": "Moon sign (rashi) name, e.g. Mesha."
+  "rashi": "Moon sign (rashi): English or Hindi name in any case, e.g. Mesha, Mesh or aries."
  },
  "/v1/lalkitab/chart": {
   "date": "Birth date (YYYY-MM-DD).",
@@ -1059,48 +1059,58 @@
   "lang": "Language of names, labels and readings in the response: `en` (default), `hi`, `mr`, `gu`, `bn`, `te`, `ta`, `kn`, `ml`; `pa` returns names and terms in Punjabi with longer text in English. `locale` is accepted as an alias."
  },
  "/v1/prashna/answer": {
-  "date": "Birth date (YYYY-MM-DD).",
-  "tz": "Birth place timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
-  "lat": "Birth place latitude in decimal degrees.",
-  "lon": "Birth place longitude in decimal degrees.",
-  "time": "Birth time (HH:MM, 24-hour, local). Defaults to 12:00.",
+  "date": "Date the question is asked (YYYY-MM-DD).",
+  "tz": "Timezone of the place of the question: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
+  "lat": "Latitude of the place of the question, in decimal degrees.",
+  "lon": "Longitude of the place of the question, in decimal degrees.",
+  "time": "Local time the question is asked (HH:MM, 24-hour).",
   "question_house": "House number representing the subject of the question",
   "ayanamsa": "Ayanamsa (sidereal offset) to use. Defaults to lahiri.",
   "lang": "Language of names, labels and readings in the response: `en` (default), `hi`, `mr`, `gu`, `bn`, `te`, `ta`, `kn`, `ml`; `pa` returns names and terms in Punjabi with longer text in English. `locale` is accepted as an alias."
  },
  "/v1/prashna/arudha": {
-  "date": "Birth date (YYYY-MM-DD).",
-  "tz": "Birth place timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
-  "lat": "Birth place latitude in decimal degrees.",
-  "lon": "Birth place longitude in decimal degrees.",
-  "time": "Birth time (HH:MM, 24-hour, local). Defaults to 12:00.",
+  "date": "Date the question is asked (YYYY-MM-DD).",
+  "tz": "Timezone of the place of the question: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
+  "lat": "Latitude of the place of the question, in decimal degrees.",
+  "lon": "Longitude of the place of the question, in decimal degrees.",
+  "time": "Local time the question is asked (HH:MM, 24-hour).",
   "ayanamsa": "Ayanamsa (sidereal offset) to use. Defaults to lahiri.",
   "lang": "Language of names, labels and readings in the response: `en` (default), `hi`, `mr`, `gu`, `bn`, `te`, `ta`, `kn`, `ml`; `pa` returns names and terms in Punjabi with longer text in English. `locale` is accepted as an alias."
  },
  "/v1/prashna/chart": {
-  "date": "Birth date (YYYY-MM-DD).",
-  "tz": "Birth place timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
-  "lat": "Birth place latitude in decimal degrees.",
-  "lon": "Birth place longitude in decimal degrees.",
-  "time": "Birth time (HH:MM, 24-hour, local). Defaults to 12:00.",
+  "date": "Date the question is asked (YYYY-MM-DD).",
+  "tz": "Timezone of the place of the question: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
+  "lat": "Latitude of the place of the question, in decimal degrees.",
+  "lon": "Longitude of the place of the question, in decimal degrees.",
+  "time": "Local time the question is asked (HH:MM, 24-hour).",
   "ayanamsa": "Ayanamsa (sidereal offset) to use. Defaults to lahiri.",
   "lang": "Language of names, labels and readings in the response: `en` (default), `hi`, `mr`, `gu`, `bn`, `te`, `ta`, `kn`, `ml`; `pa` returns names and terms in Punjabi with longer text in English. `locale` is accepted as an alias."
  },
+ "/v1/prashna/kp-horary": {
+  "date": "Date the question is asked (YYYY-MM-DD).",
+  "tz": "Timezone of the place of the question: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
+  "lat": "Latitude of the place of the question, in decimal degrees.",
+  "lon": "Longitude of the place of the question, in decimal degrees.",
+  "number": "The KP horary number the querent gives, a whole number from 1 to 249. Number n is the n-th of the 249 sign/star/sub parts of the zodiac counted from 0° Aries; the horary ascendant is the degree where that part begins.",
+  "time": "Local time the question is asked (HH:MM, 24-hour).",
+  "ayanamsa": "Ayanamsa. Defaults to krishnamurti here, the ayanamsa KP horary is defined on (other endpoints default to lahiri).",
+  "lang": "Language of names, labels and readings in the response: `en` (default), `hi`, `mr`, `gu`, `bn`, `te`, `ta`, `kn`, `ml`; `pa` returns names and terms in Punjabi with longer text in English. `locale` is accepted as an alias."
+ },
  "/v1/prashna/lagna-lord": {
-  "date": "Birth date (YYYY-MM-DD).",
-  "tz": "Birth place timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
-  "lat": "Birth place latitude in decimal degrees.",
-  "lon": "Birth place longitude in decimal degrees.",
-  "time": "Birth time (HH:MM, 24-hour, local). Defaults to 12:00.",
+  "date": "Date the question is asked (YYYY-MM-DD).",
+  "tz": "Timezone of the place of the question: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
+  "lat": "Latitude of the place of the question, in decimal degrees.",
+  "lon": "Longitude of the place of the question, in decimal degrees.",
+  "time": "Local time the question is asked (HH:MM, 24-hour).",
   "ayanamsa": "Ayanamsa (sidereal offset) to use. Defaults to lahiri.",
   "lang": "Language of names, labels and readings in the response: `en` (default), `hi`, `mr`, `gu`, `bn`, `te`, `ta`, `kn`, `ml`; `pa` returns names and terms in Punjabi with longer text in English. `locale` is accepted as an alias."
  },
  "/v1/prashna/significators": {
-  "date": "Birth date (YYYY-MM-DD).",
-  "tz": "Birth place timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
-  "lat": "Birth place latitude in decimal degrees.",
-  "lon": "Birth place longitude in decimal degrees.",
-  "time": "Birth time (HH:MM, 24-hour, local). Defaults to 12:00.",
+  "date": "Date the question is asked (YYYY-MM-DD).",
+  "tz": "Timezone of the place of the question: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
+  "lat": "Latitude of the place of the question, in decimal degrees.",
+  "lon": "Longitude of the place of the question, in decimal degrees.",
+  "time": "Local time the question is asked (HH:MM, 24-hour).",
   "house": "Question house number (1–12)",
   "ayanamsa": "Ayanamsa (sidereal offset) to use. Defaults to lahiri.",
   "lang": "Language of names, labels and readings in the response: `en` (default), `hi`, `mr`, `gu`, `bn`, `te`, `ta`, `kn`, `ml`; `pa` returns names and terms in Punjabi with longer text in English. `locale` is accepted as an alias."
@@ -1119,7 +1129,7 @@
   "tz": "Timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
   "lat": "Latitude in decimal degrees.",
   "lon": "Longitude in decimal degrees.",
-  "rashi": "Moon sign (rashi) name, e.g. Mesha.",
+  "rashi": "Moon sign (rashi): English or Hindi name in any case, e.g. Mesha, Mesh or aries.",
   "lang": "Language of names, labels and readings in the response: `en` (default), `hi`, `mr`, `gu`, `bn`, `te`, `ta`, `kn`, `ml`; `pa` returns names and terms in Punjabi with longer text in English. `locale` is accepted as an alias."
  },
  "/v1/reports/horoscope/monthly": {
@@ -1128,8 +1138,8 @@
   "tz": "Birth place timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
   "lat": "Birth place latitude in decimal degrees.",
   "lon": "Birth place longitude in decimal degrees.",
-  "rashi": "Moon sign (rashi) name, e.g. Mesha.",
-  "month": "Month number (1–12).",
+  "rashi": "Moon sign (rashi): English or Hindi name in any case, e.g. Mesha, Mesh or aries.",
+  "month": "Month (YYYY-MM), e.g. 2027-01.",
   "lang": "Language of names, labels and readings in the response: `en` (default), `hi`, `mr`, `gu`, `bn`, `te`, `ta`, `kn`, `ml`; `pa` returns names and terms in Punjabi with longer text in English. `locale` is accepted as an alias."
  },
  "/v1/reports/horoscope/weekly": {
@@ -1138,7 +1148,7 @@
   "tz": "Birth place timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).",
   "lat": "Birth place latitude in decimal degrees.",
   "lon": "Birth place longitude in decimal degrees.",
-  "rashi": "Moon sign (rashi) name, e.g. Mesha.",
+  "rashi": "Moon sign (rashi): English or Hindi name in any case, e.g. Mesha, Mesh or aries.",
   "lang": "Language of names, labels and readings in the response: `en` (default), `hi`, `mr`, `gu`, `bn`, `te`, `ta`, `kn`, `ml`; `pa` returns names and terms in Punjabi with longer text in English. `locale` is accepted as an alias."
  },
  "/v1/reports/kundli/brihad": {

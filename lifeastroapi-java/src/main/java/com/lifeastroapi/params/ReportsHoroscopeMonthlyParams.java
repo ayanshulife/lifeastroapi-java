@@ -55,7 +55,7 @@ public final class ReportsHoroscopeMonthlyParams {
     }
 
     /**
-     * Moon sign (rashi) name, e.g. Mesha.
+     * Moon sign (rashi): English or Hindi name in any case, e.g. Mesha, Mesh or aries.
      *
      * @return the value, or null when not set
      */
@@ -64,7 +64,7 @@ public final class ReportsHoroscopeMonthlyParams {
     }
 
     /**
-     * Month number (1–12).
+     * Month (YYYY-MM), e.g. 2027-01.
      *
      * @return the value, or null when not set
      */
@@ -170,7 +170,7 @@ public final class ReportsHoroscopeMonthlyParams {
         }
 
         /**
-         * Moon sign (rashi) name, e.g. Mesha.
+         * Moon sign (rashi): English or Hindi name in any case, e.g. Mesha, Mesh or aries.
          *
          * @param rashi the value, required
          * @return this builder
@@ -181,7 +181,7 @@ public final class ReportsHoroscopeMonthlyParams {
         }
 
         /**
-         * Month number (1–12).
+         * Month (YYYY-MM), e.g. 2027-01.
          *
          * @param month the value, required
          * @return this builder

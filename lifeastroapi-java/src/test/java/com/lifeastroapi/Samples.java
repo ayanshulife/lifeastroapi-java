@@ -179,6 +179,7 @@ import com.lifeastroapi.params.PlanetMomentsSpeedParams;
 import com.lifeastroapi.params.PrashnaAnswerParams;
 import com.lifeastroapi.params.PrashnaArudhaParams;
 import com.lifeastroapi.params.PrashnaChartParams;
+import com.lifeastroapi.params.PrashnaKpHoraryParams;
 import com.lifeastroapi.params.PrashnaLagnaLordParams;
 import com.lifeastroapi.params.PrashnaSignificatorsParams;
 import com.lifeastroapi.params.RemediesByRuleIdParams;
@@ -456,11 +457,11 @@ final class Samples {
                 (c, lang) -> c.chart().houses(ChartHousesParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).lang(lang).build()),
                 (c, lang) -> c.chart().houses(ChartHousesParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).lang(lang).build())));
         all.add(new Sample("chart.kpHouseSignificator", "/v1/chart/kp-house-significator", "birth", true,
-                (c, lang) -> c.chart().kpHouseSignificator(ChartKpHouseSignificatorParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).cusp(7).lang(lang).build()),
-                (c, lang) -> c.chart().kpHouseSignificator(ChartKpHouseSignificatorParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).cusp(7).lang(lang).build())));
+                (c, lang) -> c.chart().kpHouseSignificator(ChartKpHouseSignificatorParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).lang(lang).build()),
+                (c, lang) -> c.chart().kpHouseSignificator(ChartKpHouseSignificatorParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).lang(lang).build())));
         all.add(new Sample("chart.kpSublord", "/v1/chart/kp-sublord", "birth", true,
-                (c, lang) -> c.chart().kpSublord(ChartKpSublordParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).planet("Jupiter").lang(lang).build()),
-                (c, lang) -> c.chart().kpSublord(ChartKpSublordParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).planet("Jupiter").lang(lang).build())));
+                (c, lang) -> c.chart().kpSublord(ChartKpSublordParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).lang(lang).build()),
+                (c, lang) -> c.chart().kpSublord(ChartKpSublordParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).lang(lang).build())));
         all.add(new Sample("chart.kundliFacts", "/v1/chart/kundli-facts", "birth", true,
                 (c, lang) -> c.chart().kundliFacts(ChartKundliFactsParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).lang(lang).build()),
                 (c, lang) -> c.chart().kundliFacts(ChartKundliFactsParams.builder().birth(BirthInput.of("1990-01-15", "10:30", "Asia/Kolkata", 19.076, 72.8777)).lang(lang).build())));
@@ -974,6 +975,9 @@ final class Samples {
         all.add(new Sample("prashna.chart", "/v1/prashna/chart", "moment", true,
                 (c, lang) -> c.prashna().chart(PrashnaChartParams.builder().place(Place.of(19.076, 72.8777, "Asia/Kolkata")).date("2026-11-20").time("12:00").lang(lang).build()),
                 (c, lang) -> c.prashna().chart(PrashnaChartParams.builder().place(Place.of(19.076, 72.8777, "Asia/Kolkata")).date("2026-11-20").time("12:00").lang(lang).build())));
+        all.add(new Sample("prashna.kpHorary", "/v1/prashna/kp-horary", "moment", true,
+                (c, lang) -> c.prashna().kpHorary(PrashnaKpHoraryParams.builder().place(Place.of(19.076, 72.8777, "Asia/Kolkata")).date("2026-11-20").time("12:00").number(23).lang(lang).build()),
+                (c, lang) -> c.prashna().kpHorary(PrashnaKpHoraryParams.builder().place(Place.of(19.076, 72.8777, "Asia/Kolkata")).date("2026-11-20").time("12:00").number(23).lang(lang).build())));
         all.add(new Sample("prashna.lagnaLord", "/v1/prashna/lagna-lord", "moment", true,
                 (c, lang) -> c.prashna().lagnaLord(PrashnaLagnaLordParams.builder().place(Place.of(19.076, 72.8777, "Asia/Kolkata")).date("2026-11-20").time("12:00").lang(lang).build()),
                 (c, lang) -> c.prashna().lagnaLord(PrashnaLagnaLordParams.builder().place(Place.of(19.076, 72.8777, "Asia/Kolkata")).date("2026-11-20").time("12:00").lang(lang).build())));

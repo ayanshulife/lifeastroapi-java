@@ -49,7 +49,7 @@ public final class HoroscopeDailyParams {
     }
 
     /**
-     * Moon sign (rashi) name, e.g. Mesha.
+     * Moon sign (rashi): English or Hindi name in any case, e.g. Mesha, Mesh or aries.
      *
      * @return the value, or null when not set
      */
@@ -146,7 +146,7 @@ public final class HoroscopeDailyParams {
         }
 
         /**
-         * Moon sign (rashi) name, e.g. Mesha.
+         * Moon sign (rashi): English or Hindi name in any case, e.g. Mesha, Mesh or aries.
          *
          * @param rashi the value, required
          * @return this builder

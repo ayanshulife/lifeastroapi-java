@@ -1,5 +1,5 @@
 {
- "node_entries": 322,
+ "node_entries": 323,
  "methods": [
   {
    "key": "ashtakavarga.bhinna",
@@ -2043,7 +2043,7 @@
     {
      "wire": "cusp",
      "field": "cusp",
-     "required": true
+     "required": false
     },
     {
      "wire": "lang",
@@ -2098,15 +2098,6 @@
      ]
     },
     {
-     "name": "cusp",
-     "type": "Integer",
-     "required": true,
-     "kind": "scalar",
-     "wires": [
-      "cusp"
-     ]
-    },
-    {
      "name": "ayanamsa",
      "type": "Ayanamsa",
      "required": false,
@@ -2122,6 +2113,15 @@
      "kind": "scalar",
      "wires": [
       "house_system"
+     ]
+    },
+    {
+     "name": "cusp",
+     "type": "Integer",
+     "required": false,
+     "kind": "scalar",
+     "wires": [
+      "cusp"
      ]
     },
     {
@@ -2147,7 +2147,7 @@
     {
      "wire": "planet",
      "field": "planet",
-     "required": true
+     "required": false
     },
     {
      "wire": "lang",
@@ -2202,15 +2202,6 @@
      ]
     },
     {
-     "name": "planet",
-     "type": "String",
-     "required": true,
-     "kind": "scalar",
-     "wires": [
-      "planet"
-     ]
-    },
-    {
      "name": "ayanamsa",
      "type": "Ayanamsa",
      "required": false,
@@ -2226,6 +2217,15 @@
      "kind": "scalar",
      "wires": [
       "house_system"
+     ]
+    },
+    {
+     "name": "planet",
+     "type": "String",
+     "required": false,
+     "kind": "scalar",
+     "wires": [
+      "planet"
      ]
     },
     {
@@ -14919,6 +14919,101 @@
      "kind": "scalar",
      "wires": [
       "tz"
+     ]
+    },
+    {
+     "name": "date",
+     "type": "String",
+     "required": false,
+     "kind": "scalar",
+     "wires": [
+      "date"
+     ]
+    },
+    {
+     "name": "time",
+     "type": "String",
+     "required": false,
+     "kind": "scalar",
+     "wires": [
+      "time"
+     ]
+    },
+    {
+     "name": "ayanamsa",
+     "type": "Ayanamsa",
+     "required": false,
+     "kind": "scalar",
+     "wires": [
+      "ayanamsa"
+     ]
+    },
+    {
+     "name": "lang",
+     "type": "Lang",
+     "required": false,
+     "kind": "scalar",
+     "wires": [
+      "lang",
+      "locale"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "prashna.kpHorary",
+   "nodeKey": "prashna.kpHorary",
+   "path": "/v1/prashna/kp-horary",
+   "shape": "moment",
+   "cost": 30,
+   "params": "PrashnaKpHoraryParams",
+   "extras": [
+    {
+     "wire": "number",
+     "field": "number",
+     "required": true
+    },
+    {
+     "wire": "lang",
+     "field": "lang",
+     "required": false
+    }
+   ],
+   "fields": [
+    {
+     "name": "lat",
+     "type": "Double",
+     "required": true,
+     "kind": "scalar",
+     "wires": [
+      "lat"
+     ]
+    },
+    {
+     "name": "lon",
+     "type": "Double",
+     "required": true,
+     "kind": "scalar",
+     "wires": [
+      "lon"
+     ]
+    },
+    {
+     "name": "tz",
+     "type": "String",
+     "required": true,
+     "kind": "scalar",
+     "wires": [
+      "tz"
+     ]
+    },
+    {
+     "name": "number",
+     "type": "Integer",
+     "required": true,
+     "kind": "scalar",
+     "wires": [
+      "number"
      ]
     },
     {

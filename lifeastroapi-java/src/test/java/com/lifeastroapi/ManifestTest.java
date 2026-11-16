@@ -19,7 +19,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
- * The client has one method per entry of the Node SDK's manifest (322), reachable as
+ * The client has one method per entry of the Node SDK's manifest (323), reachable as
  * {@code client.<group>().<method>(params)} on the blocking and the async side.
  */
 class ManifestTest {
@@ -36,7 +36,7 @@ class ManifestTest {
 
     @Test
     void oneMethodPerNodeManifestEntry() {
-        assertEquals(322, manifest.path("node_entries").asInt(), "Node SDK manifest size");
+        assertEquals(323, manifest.path("node_entries").asInt(), "Node SDK manifest size");
         assertEquals(manifest.path("node_entries").asInt(), manifest.path("methods").size());
         assertEquals(manifest.path("methods").size(), Samples.all().size());
     }
@@ -65,7 +65,7 @@ class ManifestTest {
     }
 
     @Test
-    void generatedResourceClassesHaveExactly322DistinctMethods() throws Exception {
+    void generatedResourceClassesHaveExactly323DistinctMethods() throws Exception {
         Set<String> names = new HashSet<>();
         for (String cls : resourceClasses()) {
             Class<?> c = Class.forName("com.lifeastroapi.resources." + cls);
@@ -76,7 +76,7 @@ class ManifestTest {
                 names.add(cls + "." + m.getName());
             }
         }
-        assertEquals(322, names.size());
+        assertEquals(323, names.size());
     }
 
     private static List<String> resourceClasses() {

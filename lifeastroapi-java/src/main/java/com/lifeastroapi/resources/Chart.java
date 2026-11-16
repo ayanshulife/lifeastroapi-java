@@ -899,8 +899,10 @@ public final class Chart {
     }
 
     /**
-     * Get KP (Krishnamurti Paddhati) house significators for a given cusp — lists planets that significate
-     * the house through occupancy, lordship, and sub-lord chain.
+     * KP house significators for all 12 Placidus cusps (20 credits): each cusp's star, sub and sub-sub lords
+     * and its significator planets (four KP levels), the houses every planet signifies, and the KP 4-step
+     * chain. Pass ayanamsa krishnamurti for KP work. <code>cusp</code> is accepted for compatibility and
+     * ignored: all 12 cusps are returned.
      *
      * <p>Cost: 20 credits per call. <code>GET /v1/chart/kp-house-significator</code>
      *
@@ -957,8 +959,10 @@ public final class Chart {
     }
 
     /**
-     * Get the KP sublord of a planet — the sub-lord of the nakshatra sub-division the planet occupies (KP
-     * star lord → sub lord → sub-sub lord chain).
+     * KP star, sub and sub-sub lords of every planet (10 credits), and the KP ruling planets for the moment
+     * and place (day lord, and the star, sign and sub lords of the ascendant and the Moon); send the moment
+     * of judgement for horary or timing. Pass ayanamsa krishnamurti for KP work. <code>planet</code> is
+     * accepted for compatibility and ignored: all planets are returned.
      *
      * <p>Cost: 10 credits per call. <code>GET /v1/chart/kp-sublord</code>
      *

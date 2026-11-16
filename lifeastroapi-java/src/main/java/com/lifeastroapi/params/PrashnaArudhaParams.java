@@ -62,7 +62,7 @@ public final class PrashnaArudhaParams {
     }
 
     /**
-     * Birth place latitude in decimal degrees.
+     * Latitude of the place of the question, in decimal degrees.
      *
      * @return the value, or null when not set
      */
@@ -71,7 +71,7 @@ public final class PrashnaArudhaParams {
     }
 
     /**
-     * Birth place longitude in decimal degrees.
+     * Longitude of the place of the question, in decimal degrees.
      *
      * @return the value, or null when not set
      */
@@ -80,7 +80,7 @@ public final class PrashnaArudhaParams {
     }
 
     /**
-     * Birth place timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).
+     * Timezone of the place of the question: IANA name (Asia/Kolkata) or UTC offset (+05:30).
      *
      * @return the value, or null when not set
      */
@@ -98,7 +98,7 @@ public final class PrashnaArudhaParams {
     }
 
     /**
-     * Birth time (HH:MM, 24-hour, local). Defaults to 12:00.
+     * Local time the question is asked (HH:MM, 24-hour).
      *
      * @return the value, or null when not set
      */
@@ -239,7 +239,7 @@ public final class PrashnaArudhaParams {
         }
 
         /**
-         * Birth place latitude in decimal degrees.
+         * Latitude of the place of the question, in decimal degrees.
          *
          * @param lat the value
          * @return this builder
@@ -250,7 +250,7 @@ public final class PrashnaArudhaParams {
         }
 
         /**
-         * Birth place longitude in decimal degrees.
+         * Longitude of the place of the question, in decimal degrees.
          *
          * @param lon the value
          * @return this builder
@@ -261,7 +261,7 @@ public final class PrashnaArudhaParams {
         }
 
         /**
-         * Birth place timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).
+         * Timezone of the place of the question: IANA name (Asia/Kolkata) or UTC offset (+05:30).
          *
          * @param tz the value, required
          * @return this builder
@@ -272,7 +272,7 @@ public final class PrashnaArudhaParams {
         }
 
         /**
-         * Birth place timezone: IANA name (Asia/Kolkata) or UTC offset (+05:30).
+         * Timezone of the place of the question: IANA name (Asia/Kolkata) or UTC offset (+05:30).
          *
          * @param tz the zone; its id is sent, or null
          * @return this builder
@@ -305,7 +305,7 @@ public final class PrashnaArudhaParams {
         }
 
         /**
-         * Birth time (HH:MM, 24-hour, local). Defaults to 12:00.
+         * Local time the question is asked (HH:MM, 24-hour).
          *
          * @param time the value, or null to leave it out
          * @return this builder
@@ -316,7 +316,7 @@ public final class PrashnaArudhaParams {
         }
 
         /**
-         * Birth time (HH:MM, 24-hour, local). Defaults to 12:00.
+         * Local time the question is asked (HH:MM, 24-hour).
          *
          * @param time the time, sent as <code>HH:MM</code> (<code>HH:MM:SS</code> with seconds), or null
          * @return this builder

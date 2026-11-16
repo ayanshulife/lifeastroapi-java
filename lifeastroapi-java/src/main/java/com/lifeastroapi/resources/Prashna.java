@@ -10,6 +10,7 @@ import com.lifeastroapi.errors.LifeAstroException;
 import com.lifeastroapi.params.PrashnaAnswerParams;
 import com.lifeastroapi.params.PrashnaArudhaParams;
 import com.lifeastroapi.params.PrashnaChartParams;
+import com.lifeastroapi.params.PrashnaKpHoraryParams;
 import com.lifeastroapi.params.PrashnaLagnaLordParams;
 import com.lifeastroapi.params.PrashnaSignificatorsParams;
 
@@ -193,6 +194,66 @@ public final class Prashna {
      *     <code>type</code>
      */
     public <T> T chart(PrashnaChartParams params, Class<T> type, RequestOptions options) {
+        Objects.requireNonNull(params, "params");
+        return client.request(params.toPath(), params.toQuery(), type, options);
+    }
+
+    /**
+     * KP horary chart for a number from 1 to 249 (30 credits), cast for the moment and place of judgement:
+     * the horary ascendant (the first degree of that number's sign/star/sub part), the 12 Placidus cusps with
+     * star, sub and sub-sub lords and significators, planets with KP lords and houses, planet significators,
+     * the 4-step chain and the ruling planets of the moment. Uses the Krishnamurti ayanamsa unless ayanamsa
+     * is sent.
+     *
+     * <p>Cost: 30 credits per call. <code>GET /v1/prashna/kp-horary</code>
+     *
+     * @param params the parameters, from {@link PrashnaKpHoraryParams#builder()}
+     * @return the response JSON
+     * @throws LifeAstroException on an API error or a network failure
+     */
+    public JsonNode kpHorary(PrashnaKpHoraryParams params) {
+        return kpHorary(params, JsonNode.class, null);
+    }
+
+    /**
+     * Like {@link #kpHorary(PrashnaKpHoraryParams)}, with per-call options.
+     *
+     * @param params the parameters, from {@link PrashnaKpHoraryParams#builder()}
+     * @param options per-call timeout, raw body or <code>onResponse</code> hook, or null
+     * @return the response JSON
+     * @throws LifeAstroException on an API error or a network failure
+     */
+    public JsonNode kpHorary(PrashnaKpHoraryParams params, RequestOptions options) {
+        return kpHorary(params, JsonNode.class, options);
+    }
+
+    /**
+     * Like {@link #kpHorary(PrashnaKpHoraryParams)}, mapped to your own class (a DTO, a <code>Map</code>,
+     * ...).
+     *
+     * @param <T> the result type
+     * @param params the parameters, from {@link PrashnaKpHoraryParams#builder()}
+     * @param type the class to map the response to
+     * @return the response mapped to <code>type</code>
+     * @throws LifeAstroException on an API error, a network failure, or when the response does not map to
+     *     <code>type</code>
+     */
+    public <T> T kpHorary(PrashnaKpHoraryParams params, Class<T> type) {
+        return kpHorary(params, type, null);
+    }
+
+    /**
+     * Like {@link #kpHorary(PrashnaKpHoraryParams)}, mapped to your own class, with per-call options.
+     *
+     * @param <T> the result type
+     * @param params the parameters, from {@link PrashnaKpHoraryParams#builder()}
+     * @param type the class to map the response to
+     * @param options per-call timeout, raw body or <code>onResponse</code> hook, or null
+     * @return the response mapped to <code>type</code>
+     * @throws LifeAstroException on an API error, a network failure, or when the response does not map to
+     *     <code>type</code>
+     */
+    public <T> T kpHorary(PrashnaKpHoraryParams params, Class<T> type, RequestOptions options) {
         Objects.requireNonNull(params, "params");
         return client.request(params.toPath(), params.toQuery(), type, options);
     }
